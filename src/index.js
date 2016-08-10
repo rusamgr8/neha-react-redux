@@ -8,10 +8,14 @@ const App = function(){
 }
 
 class App1 extends Component {
+  constructor(props){
+    super(props);
+    this.state = {username:'Search Term1'}
+  }
   render() {
     return (
       <div>
-        <SearchBar />
+        <SearchBar username={this.state.username} address={{a: '123'}}/>
       </div>
     );
   }
