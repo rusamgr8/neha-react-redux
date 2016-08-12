@@ -13,7 +13,8 @@ class ResultList extends Component{
         <ResultItem name={result.name}
         comment={result.comment}
         key={result.id}
-        image={result.image} />
+        image={result.image}
+        likes={result.likes} />
       )
     });
 

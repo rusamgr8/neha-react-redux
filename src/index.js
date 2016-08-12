@@ -1,26 +1,16 @@
-/* eslint-disable no-console */
+import 'babel-polyfill';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './searchbar';
+import {Provider} from 'react-redux';
+import {Router, browserHistory} from 'react-router';
+import routes from './routes';
+import configureStore from './store/configureStore';
+const store = configureStore();
 
-const App = function(){
-  return <div>Neha</div>;
-}
 
-class App1 extends Component {
-  constructor(props){
-    super(props);
-    this.state = {username:'Search Term1'}
-  }
-  render() {
-    return (
-      <div>
-        <SearchBar username={this.state.username} address={{a: '123'}}/>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<App1 />, document.getElementById('app'));
-
-console.log('hi');
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>,
+  document.getElementById('app')
+);

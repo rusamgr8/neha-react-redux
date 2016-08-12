@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ResultList from './result_list';
+import CommentList from './comment_list';
 
 class SearchBar extends Component {
 
@@ -7,12 +7,33 @@ class SearchBar extends Component {
     super(props);
 
     this.onInputChange = this.onInputChange.bind(this);
-    this.state = {term: '', results: []};
+    //this.state = {term: '', results: []};
+    this.state = {term: "",
+      results:[
+        {
+            id: 1,
+            name: 'Neha',
+            comment: 'Awesome!!!',
+            image: 'http://d2rfsfyh2505gh.cloudfront.net/wp-content/uploads/2014/08/Neha_Dhupia-compressed.jpg',
+            likes: 5
 
-    this.onClick = this.onClick.bind(this);
+
+        },{
+          id: 2,
+          name: 'Jaya',
+          comment: 'Woww!!!',
+          image: 'http://drop.ndtv.com/albums/ENTERTAINMENT/jayabachchan/2.jpg',
+          likes: 5
+        }
+
+
+      ]
+
+    }
+    //this.onClick = this.onClick.bind(this);
   }
 
-  onClick(event){
+  /*onClick(event){
     //console.log(event.target.value);
     this.setState({
       results:[
@@ -33,7 +54,7 @@ class SearchBar extends Component {
       ]
 
     });
-  }
+  }*/
 
   onInputChange(event){
     //console.log(event.target.value);
@@ -43,9 +64,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input placeholder="Enter First Name" className="row form-control mark col-xs-1" value={this.state.term} onChange={this.onInputChange}/>
-        <button onClick={this.onClick}>Search</button>
-        <ResultList results={this.state.results} />
+        <CommentList results={this.state.results} />
       </div>
     );
   }
